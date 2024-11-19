@@ -12,10 +12,11 @@ import com.vdurmont.emoji.Emoji;
 import com.vdurmont.emoji.EmojiManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.practicum.emojicon.engine.EmojiTicker;
 import ru.practicum.emojicon.engine.Engine;
 import ru.practicum.emojicon.model.EmojiCat;
 import ru.practicum.emojicon.model.EmojiWorld;
+import ru.practicum.emojicon.ui.EmojiHelp;
+import ru.practicum.emojicon.ui.EmojiTicker;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -34,6 +35,7 @@ public class Main {
         Engine engine = new Engine();
         engine.addRoot(world);
         engine.addRoot(new EmojiTicker());
+        engine.addRoot(new EmojiHelp(engine, world));
         engine.run();
     }
 

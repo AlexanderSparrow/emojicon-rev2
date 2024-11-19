@@ -1,6 +1,8 @@
-package ru.practicum.emojicon.engine;
+package ru.practicum.emojicon.ui;
 
 import com.googlecode.lanterna.TextColor;
+import ru.practicum.emojicon.engine.Drawable;
+import ru.practicum.emojicon.engine.Frame;
 
 import java.time.Instant;
 import java.util.Arrays;

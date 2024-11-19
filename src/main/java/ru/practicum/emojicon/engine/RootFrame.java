@@ -18,6 +18,10 @@ public class RootFrame extends AbstractFrame {
         this.screen = screen;
     }
 
+    public static RootFrame extend(Frame frame) {
+        return (RootFrame) frame.getRoot();
+    }
+
     @Override
     public TextColor getTransparentColor() {
         return transparentColorFn != null ? transparentColorFn.apply(getPosX(), getPosY()) : TextColor.ANSI.BLACK;
@@ -63,5 +67,8 @@ public class RootFrame extends AbstractFrame {
 
     public void setTransparentColorFn(BiFunction<Integer, Integer, TextColor> transparentColorFn) {
         this.transparentColorFn = transparentColorFn;
+    }
+    public Screen getScreen() {
+        return screen;
     }
 }

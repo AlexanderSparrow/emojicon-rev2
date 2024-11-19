@@ -71,11 +71,21 @@ public class Engine implements Runnable, EntityResolver {
                 screen.refresh(Screen.RefreshType.DELTA);
                 long dt = Instant.now().toEpochMilli() - timestamp.toEpochMilli();
                 timestamp = Instant.now();
+                handleEngineKey(key);
                 Thread.sleep(Math.max(0, FRAME_TIME - dt)); //сколько-то времени ушло на кадр
             } while (key == null || !(key.getKeyType().equals(KeyType.Escape)));
             screen.stopScreen();
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private void handleEngineKey(KeyStroke key) throws IOException {
+        if (key == null)
+            return;
+
+        if (key.getKeyType().equals(KeyType.Character) && key.getCharacter().equals(' ')) {
+            terminal.bell();
         }
     }
 

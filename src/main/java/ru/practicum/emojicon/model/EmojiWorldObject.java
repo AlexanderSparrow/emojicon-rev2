@@ -96,4 +96,8 @@ public class EmojiWorldObject implements Boxed, Drawable, Controllable, Entity {
     public int getLeft() {
         return getX();
     }
+
+    public EmojiObject getInner() {
+        return inner;
+    }
 }
